@@ -12,7 +12,7 @@
 > We also see the heat activation maps of the various error types to get a visual idea of the feature extraction being done in the network for various errors. We expect to see differences in accuracy and the number of epochs taken to reach suitable accuracy for different errors and understand why this Artificial Neural Network may perform better on specific variations.
 
 
-![](https://user-images.githubusercontent.com/23727056/87433896-78ae9700-c607-11ea-9ca6-9cdbe3f67998.jpg)
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/blurry_vision.png)
 
 ## Project Model 
 
@@ -23,8 +23,12 @@
   * Individual color removal for partial color blindness
 * Synthetic errors such as salt and pepper, and speckle
 * Downscaled Alexnet (by 2) and 64x64 images to increase speed.
-* ADAM optimiser along with cross entropy as loss function.
+* ADAM optimizer along with cross-entropy as loss function.
 * Regulariser - Early stopping
+
+![](https://miro.medium.com/max/1838/1*bD_DMBtKwveuzIkQTwjKQQ.png)
+
+![](https://www.biorxiv.org/content/biorxiv/early/2020/01/02/407007/F1.large.jpg)
 
 ## Training patterns
 
@@ -41,27 +45,33 @@
   Shows how V1, V2, and V4 layers look for specific images.
   ```
 ## Example Images
-![]()
-![]()
-![]()
-![]()
-![]()
+* Gaussian Blur 5
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/GuassianBlur5.png)
+* Gaussian Blur 2
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/GuassianBlur2.png)
+* Color Removal
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/colorem.png)
+* Speckle Noise
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/speckleblur.png)
+* Salt and Pepper Noise
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/SandPBlur.png)
 
 ## Accuracy
 ### Gaussian Noise - radius 5
-![]()
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/Acc_GN_5.png)
 ### Blue color deletion
-![]()
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/Acc_BlCol.png)
 ## Intermediate layer output
 ### Blue color blindness - intermediate layer output
-![]()
+
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/bl_ILO.JPG)
 ## Performance
 ### Performance of Naive Learner on different noise
-![]()
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/performance_naive_learner_all_noises.png)
 ### Performance of Expert Learner on different noise
-![]()
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/performance_experience_learner_all_noises.png)
 ## Naive Learner vs Expert Learner 
-![]()
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/nlvsel.png)
 
 ## Conclusion
 
