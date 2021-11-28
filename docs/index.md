@@ -1,37 +1,82 @@
-## Welcome to GitHub Pages
+# (Computer) Vision with Lost Glasses
 
-You can use the [editor on GitHub](https://github.com/SAIGANESH02/Vision_with_Lost_Glasses/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Introduction
 
-### Markdown
+> Computer vision is one of the main areas where Artificial Neural Networks are frequently deployed to classify images. How these networks deal with various aberrations in the images is an ongoing field of research. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+> In this project, we use the ASIRRA dataset that contains images of dogs and cats to test the binary classification efficiency of a downscaled AlexNet, one of the most famous Artificial Neural Network used in computer vision using cross-entropy as loss function, ADAM optimizer, and early stopping to prevent overfitting and minimize training duration.
 
-```markdown
-Syntax highlighted code block
+> This network is trained on different variations of the dataset which are pathophysiologically analogous to various visual distortions of the human visual system like full or partial color blindness, blurriness. We use gaussian noise (of radius 2 and 5) and decrease the resolution to 64x64 pixels to simulate vision with lost glasses, color removal as an analog for partial color blindness, greyscale for full-color blindness, and some additional artificial errors such as salt and pepper, and speckle.
 
-# Header 1
-## Header 2
-### Header 3
+> We also see the heat activation maps of the various error types to get a visual idea of the feature extraction being done in the network for various errors. We expect to see differences in accuracy and the number of epochs taken to reach suitable accuracy for different errors and understand why this Artificial Neural Network may perform better on specific variations.
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/blurry_vision.png)
 
-**Bold** and _Italic_ and `Code` text
+## Project Model 
 
-[Link](url) and ![Image](src)
-```
+* We use ASIRRA dataset containing images of cats and dogs as a binary classification problem.
+* Introduce some errors that are biologically plausible such as - 
+  * Gaussian noise for vision blurriness
+  * Greyscale for full color blindness
+  * Individual color removal for partial color blindness
+* Synthetic errors such as salt and pepper, and speckle
+* Downscaled Alexnet (by 2) and 64x64 images to increase speed.
+* ADAM optimizer along with cross-entropy as loss function.
+* Regulariser - Early stopping
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+![](https://miro.medium.com/max/1838/1*bD_DMBtKwveuzIkQTwjKQQ.png)
 
-### Jekyll Themes
+![](https://www.biorxiv.org/content/biorxiv/early/2020/01/02/407007/F1.large.jpg)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SAIGANESH02/Vision_with_Lost_Glasses/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Training patterns
 
-### Support or Contact
+* Naive learner
+  ``` 
+  Trains directly on specific errors.
+  ```
+* Expert learner 
+  ``` 
+  First trains on clear images and then on specific errors.
+  ```
+* Intermediate layer outputs
+  ``` 
+  Shows how V1, V2, and V4 layers look for specific images.
+  ```
+## Example Images
+* Gaussian Blur 5
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/GuassianBlur5.png)
+* Gaussian Blur 2
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/GuassianBlur2.png)
+* Color Removal
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/colorem.png)
+* Speckle Noise
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/speckleblur.png)
+* Salt and Pepper Noise
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/SandPBlur.png)
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Accuracy
+### Gaussian Noise - radius 5
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/Acc_GN_5.png)
+### Blue color deletion
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/Acc_BlCol.png)
+## Intermediate layer output
+### Blue color blindness - intermediate layer output
+
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/bl_ILO.JPG)
+## Performance
+### Performance of Naive Learner on different noise
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/performance_naive_learner_all_noises.png)
+### Performance of Expert Learner on different noise
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/performance_experience_learner_all_noises.png)
+## Naive Learner vs Expert Learner 
+![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/nlvsel.png)
+
+## Conclusion
+
+* Trained models perform better than untrained ones!
+* For Gaussian noise and Grayscale images -  
+  * Good accuracy on Pretrained Model
+  * Less number of epochs for training a pre-trained model
+* Poor performance on single color deletion unless trained
