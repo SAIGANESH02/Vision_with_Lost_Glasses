@@ -1,5 +1,17 @@
 # (Computer) Vision with Lost Glasses
+## Modelling how the brain deals with noisy input
 
+## Objective
+Imagine you lost your spectacle and the world around you is completely blurred out. As you stumble around, you see a small animal walk towards you. Can you figure out what it is? Probably yes right?
+
+In this situation, or in foggy/night-time conditions, visual input is of poor quality; images are blurred and have low contrast and yet our brains manage to recognize it. Is it possible to model the process? Does previous experience help?
+
+## The Asirra dataset
+The CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart) or HIP (Human Interactive Proof) challenge is the motivation behind the creation of this dataset.
+
+Asirra (Animal Species Image Recognition for Restricting Access) is a HIP that works by asking users to identify photographs of cats and dogs. This task is difficult for computers, but studies have shown that people can accomplish it quickly and accurately.
+
+Reference: Dataset can be found here (https://www.kaggle.com/c/dogs-vs-cats)
 
 ## Introduction
 
@@ -17,8 +29,8 @@
 ## Project Model 
 
 * We use ASIRRA dataset containing images of cats and dogs as a binary classification problem.
-* Introduce some errors that are biologically plausible such as - 
-  * Gaussian noise for vision blurriness
+* We loaded the dataset with clear images and gaussian blur with radius 5 and 3.
+* Introduce some other errors that are biologically plausible such as - 
   * Greyscale for full color blindness
   * Individual color removal for partial color blindness
 * Synthetic errors such as salt and pepper, and speckle
