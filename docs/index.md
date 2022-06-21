@@ -71,23 +71,18 @@ We add Batch Normalization to make training faster and add a scaling factor to t
   ```
 ## Example Images
 * Gaussian Blur 5
-
 ![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/GuassianBlur5.png)
 
 * Gaussian Blur 2
-
 ![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/GuassianBlur2.png)
 
 * Color Removal
-
 ![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/colorem.png)
 
 * Speckle Noise
-
 ![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/speckleblur.png)
 
 * Salt and Pepper Noise
-
 ![](https://raw.githubusercontent.com/SAIGANESH02/Vision_with_Lost_Glasses/master/assets/SandPBlur.png)
 
 ## Accuracy
@@ -118,3 +113,6 @@ We add Batch Normalization to make training faster and add a scaling factor to t
   * Good accuracy on Pretrained Model
   * Less number of epochs for training a pre-trained model
 * Poor performance on single color deletion unless trained
+
+#### Thank You :)
+### Sai Ganesh N
